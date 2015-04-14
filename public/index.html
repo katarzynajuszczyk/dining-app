@@ -7,12 +7,39 @@
         <title>Dining App</title>
       
         <!-- inject:css -->
+        <link rel="stylesheet" href="styles/styles.css"/>
         <!-- endinject -->
         
     </head>
     <body >
        <section class="main-content">
-           @@include('./partials/header.html')
+           
+ <header class="main-header">
+     <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="../" class="navbar-brand">Dining App</a>
+          <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div class="navbar-collapse collapse" id="navbar-main">
+          <ul class="nav navbar-nav">
+            <li><a href="">Link</a></li>
+            <li><a href="">Link</a></li>
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="http://builtwithbootstrap.com/" target="_blank">Built With Bootstrap</a></li>
+            <li><a href="https://wrapbootstrap.com/?ref=bsw" target="_blank">WrapBootstrap</a></li>
+          </ul>
+
+        </div>
+      </div>
+    </div>
+</header>
            
            <div class="container">
                
@@ -21,34 +48,29 @@
                     <div class="well bs-component">
                       <form class="form-horizontal">
                         <fieldset>
-                          <legend class="text-center">Register</legend>
+                          <legend class="text-center">Log in</legend>
                           <hr class="star-primary"/>
-                          <p class="alert alert-danger text-center">
-                            <strong>Oh snap!</strong> Change a few things up and try submitting again.                  
-                          </p>
-                          <p class="alert alert-success text-center">
-                            <strong>Well done!</strong> You successfully creatend an account. Now you can <a  class="alert-link" href="">Log inn</a>                  
-                          </p>
                           <div class="form-group">
                             <label for="inputEmail" class="col-lg-2 control-label">Email</label>
                             <div class="col-lg-10">
                               <input type="text" class="form-control" id="inputEmail" placeholder="Email">
                             </div>
                           </div>
-                          <div class="form-group">
+                          <div class="form-group has-error"> <!-- possible also has-success -->
                             <label for="inputPassword" class="col-lg-2 control-label">Password</label>
                             <div class="col-lg-10">
                               <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+                              <span class="help-block">wrong password</a>   
                             </div>
                           </div>
                           <div class="form-group">
-                            <label for="inputPassword" class="col-lg-2 control-label">Confirm Password</label>
-                            <div class="col-lg-10">
-                              <input type="password" class="form-control" id="inputPassword" placeholder="Password">                                             </div>
-                          </div>
-                          <div class="form-group">
                               <div class="col-lg-10 col-lg-push-2">
-                                    <a href="" class="help-block pull-right">login</a>                                     
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox"> Remember me
+                                    </label>
+                                    <a href="" class="help-block pull-right">Register</a>   
+                                  </div>
                             </div>
                           </div>
                           <div class="form-group">
@@ -57,7 +79,6 @@
                             </div>
                           </div>
                         </fieldset>
-                      
                       </form>
                    
                   </div>
@@ -73,9 +94,11 @@
       
        
         <!-- bower:js -->
+        <script src="vendor/modernizr.js"></script>
         <!-- endbower -->
 
         <!-- inject:js -->
+        <script src="scripts/main.js"></script>
         <!-- endinject -->
     </body>
 </html>

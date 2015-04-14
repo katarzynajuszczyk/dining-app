@@ -42,7 +42,6 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
-public/**/*
 node_modules/**/*
 bower_components/**/*
 .sass-cache/**/*

@@ -3,3 +3,30 @@
 @import "helpers/frameworks";
 @import "ui/layout/layout";
 @import "ui/modules/forms";
+
+
+#sticky-button {
+  position: fixed;
+  top: 147px;
+  right: -70px;
+  transform: rotate(90deg);
+}
+
+.btn.badge {
+    background-color: $gray-light;
+    
+}
+
+.actions { margin-top: .5em;}
+
+.lunch-item-active {
+    background-color: $brand-warning;
+    color: #fff;
+    a { color: #fff; text-decoration: underline;}
+    .badge.btn:last-child { color:  $brand-danger; background-color: #fff;} 
+}
+
+.lunch-item-disabled {
+    opacity: .3;
+    pointer-events: none;
+}
