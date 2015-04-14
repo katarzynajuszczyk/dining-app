@@ -3,18 +3,7 @@ html {
     background: url(../images/bg.jpg) no-repeat center center;
     background-size:cover;
     min-height: 100vh;
-    position:relative;
-    &:before {
-        content: '';
-        position:absolute;
-        display:block;
-        left:0;
-        right:0;
-        bottom:0;
-        top:0;
-        background: rgba(#fff, .2);
-            
-    }
+   
 }
 
 .main-content {
