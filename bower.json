@@ -1,0 +1,11 @@
+{
+  "name": "my-gulp-sass-livereload",
+  "private": true,
+  "dependencies": {
+    "modernizr": "2.8.3"
+  },
+  "devDependencies": {
+    "bootswatch-sass": "~3.3.1",
+    "csswizardry-grids": "~2.2.0"
+  }
+}

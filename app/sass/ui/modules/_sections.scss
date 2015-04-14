@@ -1,0 +1,76 @@
+%section-header {
+    background: $bg-dark;
+    color: $font-highlight;
+    font-weight: normal;
+}
+
+.section {
+    
+    &__h1 {
+        @extend %section-header;
+        @extend .capitalize;
+        padding: 7px 9px;
+        font-size: 1rem;
+        line-height: 1.46;
+        margin-top:0;
+    }
+    
+    &__h2 {
+        @extend %section-header;
+        font-size: .7rem;
+        line-height: 1.46;
+        padding: 3px 7px; 
+        @include respond-to(mobile) {
+            text-transform: uppercase;
+            padding: 7px 9px;
+            font-size: 1rem;
+            line-height: 1.46;
+            
+        }
+    }
+    &--divider-vertical,     
+    &--divider-horizontal {
+        position:relative;
+        &:before {
+            content: '';
+            position:absolute;
+            top: 0;
+            display: block;
+            opacity: .7;
+        }
+    }
+    &--divider-vertical {
+        @include respond-to(tablet-desktop) {
+            padding-right: $gutter/2;
+            & + * {
+                padding-left: $gutter+$gutter/2;
+            }
+            &:before {
+                bottom: 0;
+                width: 10px;
+                background: transparent url(../images/stripes-vert.svg) repeat 0 0;
+                right: -#{($gutter/2)+5};
+            }
+        }
+    }
+    &--divider-horizontal {
+        @include respond-to(tablet-desktop) {
+            padding-top: 50px;
+            &:before {
+                left:0;
+                right:0;
+                height: 10px;
+                background: transparent url(../images/stripes-horizon.svg) repeat 0 0;
+                margin-top: 20px;
+                margin-bottom: 20px;
+            }
+            &.grid {
+                &:before {left: $gutter;}
+            }
+        }
+        @include respond-to(mobile) {
+            padding-top: $gutter/2;
+        }
+    }
+}
+

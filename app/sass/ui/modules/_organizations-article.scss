@@ -1,0 +1,51 @@
+.organizations {
+    
+    &__article {
+        @include respond-to(desktop) {
+            border-top: 1px solid $bg-dark;
+            border-bottom: 1px solid $bg-dark;
+            padding: $gutter/1.5 $gutter;    
+        }
+        @include respond-to(mobile) {
+            padding: $gutter/2 0;    
+        }
+        &__h1 {
+            font-size: 1rem;
+            margin-top:0;
+            margin-bottom: $gutter/1.5;
+        }
+        &__image {
+            @include respond-to(desktop) {
+             max-width: 170px;
+           }
+           @include respond-to(tablet-desktop) {
+                margin-right: $gutter/2;
+           }
+           @include respond-to(tablet) {
+               max-width: 100px;
+           }
+           @include respond-to(mobile) {
+               width: 100%;
+           }
+        }
+        
+     
+        &__link {
+            display:block;
+            @include respond-to(mobile) {
+                text-align: right;
+            }
+        }
+        .fake-table, .fake-cell {
+            @include respond-to(mobile) {
+                display: block;
+            }
+        }
+    }
+   &__intro {
+        @include respond-to(tablet-desktop) {
+            margin-top:0;
+        }
+    }
+}
+

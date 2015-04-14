@@ -1,0 +1,40 @@
+.article-page {
+    img {
+        max-width: 100%;
+    }
+    &__h1 {
+        @include respond-to(tablet-desktop) {
+            padding-right: 25%;
+        }
+    }
+    &__header {
+        position:relative;
+        padding-bottom: $gutter/5;
+        &:after {
+            content: '';
+            position:absolute;
+            left: $gutter/2;
+            right: 0;
+            bottom: 0;
+            border-bottom: 1px solid $bg-dark;
+        }
+    }
+    &__footer {
+        a {
+            color: $text-color;
+            text-decoration: none;
+        }
+    }
+    .article__footer {
+        vertical-align: bottom;
+        @include respond-to(mobile) {
+            text-align: left;
+            margin-top: $gutter/2;
+            position: relative;
+            left: -$gutter/2;
+        }
+    
+    }
+    
+    .article__tags { display: inline-block;}
+}

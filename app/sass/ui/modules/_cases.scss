@@ -1,0 +1,18 @@
+.case {
+    display:block;
+    background: $bg-light;
+    text-decoration: none;
+    padding: 5px;
+    margin-bottom: 10px;
+    color: $text-color;
+    font-size: .8rem;
+    @extend %simple-divider;
+    box-shadow: 2px 2px 4px 0px rgba(0,0,0,0.15);
+    &:hover:before, &:hover:after {
+        opacity: .5 !important;
+    }
+}
+
+.cases {
+    margin-bottom: 20px;
+}
