@@ -6,6 +6,7 @@
   },
   "devDependencies": {
     "bootswatch-sass": "~3.3.1",
-    "csswizardry-grids": "~2.2.0"
+    "csswizardry-grids": "~2.2.0",
+    "jquery": "~1.11.2"
   }
 }

@@ -4,6 +4,7 @@ var gulp = require('gulp'),
     browserSync = require('browser-sync'),
     reload = browserSync.reload,
     wiredep = require('wiredep'),
+    streamqueue  = require('streamqueue'),
     $ = require('gulp-load-plugins')();
 
 var config = {
@@ -44,7 +45,7 @@ gulp.task('link-assets', ['scripts', 'styles', 'vendor-scripts'], function() {
       }
     }))
     .pipe($.inject(
-      gulp.src(['public/scripts/**/*.js'], { read: false }), {
+      gulp.src(['public/scripts/*.js'], { read: false }), {
         addRootSlash: false,
         transform: function(filePath, file, i, length) {
           return '<script src="' + filePath.replace('public/', '') + '"></script>';
@@ -129,10 +130,15 @@ gulp.task('images', function() {
 });
 
 gulp.task('scripts', function () {
-    return gulp.src('app/scripts/**/*.js')
-        .pipe($.jshint())
-        .pipe($.jshint.reporter(require('jshint-stylish')))
-        //.pipe($.order(["scripts/tooltip.js"]))
+    return streamqueue({ objectMode: true },
+        gulp.src('public/scripts/vendor/jquery.js'),
+        gulp.src('public/scripts/vendor/dropdown.js'),
+        gulp.src('public/scripts/vendor/modal.js'),        
+        gulp.src('app/scripts/main.js')
+    )
+    //return gulp.src(['app/scripts/**/*.js'])
+    //    .pipe($.jshint())
+    //    .pipe($.jshint.reporter(require('jshint-stylish')))
         .pipe($.concat("main.js"))
         .pipe($.size())
         .pipe(gulp.dest("public/scripts"));
@@ -152,6 +158,11 @@ gulp.task('minifyJS', ['scripts'], function () {
 gulp.task('fonts', function() {
     return gulp.src([config.bowerDir+'/bootstrap-sass-official/assets/fonts/bootstrap/*'])
         .pipe(gulp.dest('public/fonts'));
+});
+
+gulp.task('vendor-scripts-to-concat', function() {
+    return gulp.src([config.bowerDir+'/bootstrap-sass-official/assets/javascripts/bootstrap/*.js', config.bowerDir+'/jquery/dist/jquery.js' ])
+        .pipe(gulp.dest('public/scripts/vendor'));
 });
 
 // inject bower components
@@ -208,4 +219,4 @@ gulp.task('default', ['link-assets', 'images', 'connect', 'serve', 'watch']);
 gulp.task('build', ['link-assets', 'minifyStyles', 'minifyJS', 'images', 'serve']);
 
 
-gulp.task('install', ['run-bower', 'fonts','fix-wizardry']); //always run in gitshell
+gulp.task('install', ['run-bower', 'fonts', 'vendor-scripts-to-concat','fix-wizardry']); //always run in gitshell
