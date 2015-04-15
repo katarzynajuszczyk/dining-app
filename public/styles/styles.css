@@ -9373,33 +9373,55 @@ hr.star-primary:after {
 .actions {
   margin-top: .5em;
   clear: both;
+  position: relative;
+}
+/* line 37, styles.scss */
+.actions .dropdown-menu {
+  right: -15px;
+  margin-top: 10px;
+  border: 1px solid #b4bcc2;
+}
+/* line 41, styles.scss */
+.actions .dropdown-menu:before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: -7px;
+  left: 50%;
+  margin-left: 17px;
+  width: 0;
+  height: 0;
+  boreder-top: none;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-bottom: 7px solid #b4bcc2;
 }
 
-/* line 38, styles.scss */
+/* line 58, styles.scss */
 .lunch-item-active {
   background-color: #F39C12;
   color: #fff;
 }
-/* line 41, styles.scss */
+/* line 61, styles.scss */
 .lunch-item-active a {
   color: #fff;
   text-decoration: underline;
 }
-/* line 42, styles.scss */
+/* line 62, styles.scss */
 .lunch-item-active .badge.btn:last-child {
   color: #E74C3C;
   background-color: #fff;
   box-shadow: inset 0 0 0 2px #fff, 0 0 1px transparent;
 }
 
-/* line 50, styles.scss */
+/* line 70, styles.scss */
 .lunch-item-disabled {
   opacity: .3;
   pointer-events: none;
 }
 
 @media (max-width: 550px) {
-  /* line 55, styles.scss */
+  /* line 75, styles.scss */
   .list-group-item > .badge {
     float: none;
     margin: 1em 0;
@@ -9408,7 +9430,18 @@ hr.star-primary:after {
   }
 }
 
-/* line 64, styles.scss */
+/* line 84, styles.scss */
 .add-lunch-modal {
   z-index: 1060;
+}
+
+/* line 88, styles.scss */
+.dropdown-menu > li > span {
+  display: block;
+  padding: 3px 20px;
+  clear: both;
+  font-weight: 400;
+  line-height: 1.42857143;
+  color: #333;
+  white-space: nowrap;
 }
